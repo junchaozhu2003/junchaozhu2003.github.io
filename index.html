@@ -3,561 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junchao Zhu Portfolio</title>
-  <style>
-    :root {
-      --bg: #f7f4ef;
-      --surface: #fdfbf8;
-      --text: #111111;
-      --muted: #4c4c4c;
-      --accent: #1d4f75;
-      --warm: #c96b3c;
-      --line: #d8d2c8;
-      --soft-shadow: 0 8px 18px rgba(17, 17, 17, 0.08);
-      --hover-shadow: 0 16px 30px rgba(17, 17, 17, 0.14);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.5;
-    }
-
-    .page-shell {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 6vw 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-shell::before {
-      content: "PORTFOLIO 2026";
-      position: absolute;
-      top: 26px;
-      right: -8px;
-      font-size: clamp(62px, 8vw, 120px);
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: rgba(29, 79, 117, 0.08);
-      pointer-events: none;
-      z-index: 0;
-      white-space: nowrap;
-    }
-
-    header,
-    main,
-    footer { position: relative; z-index: 1; }
-
-    header {
-      position: relative;
-      padding: 78px 0 64px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 18px;
-      width: min(240px, 38vw);
-      height: 1px;
-      background: rgba(29, 79, 117, 0.4);
-    }
-
-    .hero-label {
-      margin: 0 0 20px;
-      font-size: 11px;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(62px, 9.6vw, 126px);
-      line-height: 0.92;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .positioning {
-      margin: 24px 0 0;
-      font-size: clamp(22px, 2.9vw, 34px);
-      letter-spacing: 0.8px;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .intro {
-      max-width: 760px;
-      margin: 24px 0 0;
-      font-size: 18px;
-      color: #2a2a2a;
-    }
-
-    .pathways {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pathway-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      padding: 9px 14px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.75);
-      transition: border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
-    }
-
-    .pathway-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .hero-tag {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.72);
-      color: #1c1c1c;
-      padding: 6px 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 34px;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.24s ease;
-    }
-
-    nav a:hover::after { width: 100%; }
-
-    .section-heading {
-      margin: 0 0 18px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .featured {
-      margin-top: 72px;
-      position: relative;
-      padding-top: 28px;
-    }
-
-    .featured::before {
-      content: "VISUAL SYSTEMS";
-      position: absolute;
-      top: -12px;
-      left: 0;
-      color: rgba(29, 79, 117, 0.09);
-      font-size: clamp(46px, 6.8vw, 92px);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 700;
-      pointer-events: none;
-    }
-
-    .featured-card {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 0;
-      text-decoration: none;
-      color: inherit;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--soft-shadow);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      overflow: hidden;
-    }
-
-    .featured-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--hover-shadow);
-      border-color: var(--accent);
-    }
-
-    .featured-media {
-      min-height: 430px;
-      overflow: hidden;
-      border-right: 1px solid var(--line);
-    }
-
-    .featured-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s ease;
-      display: block;
-    }
-
-    .featured-card:hover .featured-media img { transform: scale(1.04); }
-
-    .featured-content {
-      padding: 38px 34px 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .featured-kicker {
-      margin: 0;
-      font-size: 11px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--warm);
-      font-weight: 700;
-    }
-
-    .featured-content h2 {
-      margin: 10px 0 0;
-      font-size: clamp(34px, 4.4vw, 50px);
-      line-height: 1.02;
-      letter-spacing: 0.2px;
-    }
-
-    .meta {
-      margin-top: 12px;
-      font-size: 12px;
-      color: #364e60;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .featured-content p {
-      margin: 18px 0 0;
-      font-size: 16px;
-      color: #2c2c2c;
-      max-width: 42ch;
-    }
-
-    .cta {
-      margin-top: 22px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .selected {
-      margin-top: 78px;
-      padding-top: 10px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .project-card {
-      text-decoration: none;
-      color: inherit;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--soft-shadow);
-      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      overflow: hidden;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--hover-shadow);
-      border-color: var(--accent);
-    }
-
-    .project-media {
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-media img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: transform 0.45s ease;
-      display: block;
-      background: #e3ddd3;
-    }
-
-    .project-card:hover .project-media img { transform: scale(1.06); }
-
-    .project-content {
-      padding: 20px 18px 22px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .project-content h3 {
-      margin: 0;
-      font-size: 27px;
-      line-height: 1.08;
-      letter-spacing: 0.25px;
-    }
-
-    .project-content .meta {
-      margin: 0;
-      font-size: 11px;
-      line-height: 1.35;
-      color: #4c6070;
-    }
-
-    .project-content p {
-      margin: 0;
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .about {
-      margin-top: 86px;
-      border-top: 1px solid var(--line);
-      padding-top: 46px;
-      display: grid;
-      grid-template-columns: 0.95fr 1.55fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .about-title {
-      margin: 0;
-      font-size: clamp(34px, 4vw, 56px);
-      line-height: 1;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .about-copy p {
-      margin: 0 0 14px;
-      font-size: 18px;
-      max-width: 56ch;
-      color: #2f2f2f;
-    }
-
-    .about-copy a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(29, 79, 117, 0.4);
-      padding-bottom: 1px;
-    }
-
-    .about-copy a:hover { border-bottom-color: var(--accent); }
-
-    footer {
-      margin-top: 60px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      font-size: 12px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #6b6b6b;
-    }
-
-    @media (max-width: 1100px) {
-      .featured-card { grid-template-columns: 1fr; }
-      .featured-media {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-        min-height: 350px;
-      }
-      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .about { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 760px) {
-      .page-shell { padding: 0 5vw 52px; }
-      .page-shell::before { top: 16px; right: -20px; }
-      header { padding: 52px 0 44px; }
-      .positioning { font-size: clamp(22px, 7.5vw, 34px); line-height: 1.15; }
-      .intro { font-size: 16px; }
-      .pathways { margin-top: 20px; }
-      .featured { margin-top: 52px; }
-      .featured-content { padding: 26px 22px 24px; }
-      .featured-content p { font-size: 15px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-media img { height: 222px; }
-      .project-content h3 { font-size: 24px; }
-      .about-copy p { font-size: 16px; }
-    }
-  </style>
+  <title>Junchao Zhu | Creative Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-shell">
-    <header>
-      <p class="hero-label">Portfolio 2026</p>
-      <h1>Junchao Zhu</h1>
-      <p class="positioning">Visual Communication / Brand Identity / Production Workflow</p>
-      <p class="intro">
-        I work across visual identity, cultural communication, graphic design and creative production workflow,
-        creating clear visual systems across print, digital and spatial formats.
-      </p>
+  <div class="background-glow glow-a"></div>
+  <div class="background-glow glow-b"></div>
 
-      <div class="pathways" aria-label="Work Pathways">
-        <a class="pathway-btn" href="#branding">View Branding Work</a>
-        <a class="pathway-btn" href="#production">View Production Workflow</a>
+  <header class="site-header" data-header>
+    <a class="site-brand" href="#top">Junchao Zhu</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="JUNCHAO_ZHU_CV.pdf">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Portfolio 2026 / Creative Practice</p>
+        <h1>Junchao Zhu</h1>
+        <h2>Creative Portfolio</h2>
+        <p class="hero-line">Visual Communication &middot; Creative Production &middot; 3D / Motion / Unreal Engine</p>
+        <p class="hero-intro">
+          A developing portfolio exploring visual design, brand identity, production workflow and screen-based visual work.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">View Work</a>
+          <a class="button button-outline" href="#about">About Me</a>
+          <a class="button button-ghost" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button button-ghost" href="JUNCHAO_ZHU_CV.pdf">Download CV</a>
+        </div>
       </div>
 
-      <div class="tag-row" aria-label="Practice Tags">
-        <span class="hero-tag">Branding</span>
-        <span class="hero-tag">Visual Identity</span>
-        <span class="hero-tag">Cultural Communication</span>
-        <span class="hero-tag">Production Workflow</span>
-        <span class="hero-tag">Unreal Engine</span>
+      <div class="hero-visual" aria-label="Creative portfolio visual placeholder">
+        <div class="visual-label">Visual Systems / Production / Motion</div>
+        <div class="visual-frame">
+          <span class="corner corner-tl"></span>
+          <span class="corner corner-tr"></span>
+          <span class="corner corner-bl"></span>
+          <span class="corner corner-br"></span>
+          <div class="visual-orbit"></div>
+          <div class="visual-panel panel-one">Identity</div>
+          <div class="visual-panel panel-two">Workflow</div>
+          <div class="visual-panel panel-three">3D / Motion</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell selected-work" id="work">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Creative Directions</h2>
       </div>
 
-      <nav>
-        <a href="#work">Work</a>
-        <a href="#branding">Branding</a>
-        <a href="#production">Production Workflow</a>
-        <a href="#about">About</a>
-        <a href="mailto:junchaozhu2003@outlook.com">Contact</a>
-      </nav>
-    </header>
+      <div class="category-grid">
+        <article class="category-card">
+          <div class="placeholder-block"></div>
+          <h3>Brand / Visual Identity</h3>
+          <p>Logo systems, city symbols, identity design and visual storytelling.</p>
+        </article>
 
-    <main>
-      <section class="featured" id="work">
-        <p class="section-heading">Featured Work</p>
-        <a class="featured-card" id="branding" href="nanchang.html">
-          <div class="featured-media">
-            <img src="assets/images/nanchang-cover.jpg" alt="Nanchang City Symbols project cover" />
-          </div>
-          <div class="featured-content">
-            <div>
-              <p class="featured-kicker">Featured Project</p>
-              <h2>Nanchang City Symbols</h2>
-              <p class="meta">Branding / Visual Identity / Cultural Communication</p>
-              <p>
-                A visual identity system designed to introduce Nanchang, China to international audiences
-                through simplified landmark icons and applied print outcomes.
-              </p>
-            </div>
-            <span class="cta">View Case Study →</span>
-          </div>
-        </a>
-      </section>
+        <article class="category-card">
+          <div class="placeholder-block"></div>
+          <h3>Graphic / Visual Design</h3>
+          <p>Posters, layouts, editorial design, print outcomes and visual communication work.</p>
+        </article>
 
-      <section class="selected" id="production">
-        <p class="section-heading">Selected Projects</p>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-media">
-              <img src="assets/images/production-cover.jpg" alt="Production workflow project cover" />
-            </div>
-            <div class="project-content">
-              <h3>Animation Production Workflow</h3>
-              <p class="meta">Production Support / Asset Organisation / Workflow</p>
-              <p>
-                A production-focused project showing shot tracking, asset organisation,
-                feedback notes and workflow documentation across creative tasks.
-              </p>
-            </div>
-          </div>
+        <article class="category-card">
+          <div class="placeholder-block"></div>
+          <h3>Creative Production / Process</h3>
+          <p>Research, asset organisation, documentation, mockups and project development.</p>
+        </article>
 
-          <div class="project-card">
-            <div class="project-media">
-              <img src="assets/images/ue-cover.jpg" alt="Unreal Engine visual experiments cover" />
-            </div>
-            <div class="project-content">
-              <h3>Unreal Engine Visual Experiments</h3>
-              <p class="meta">Unreal Engine / 3D Visual Design / Environment</p>
-              <p>
-                Visual experiments exploring space, lighting, material effects and digital
-                presentation using Unreal Engine and 3D workflows.
-              </p>
-            </div>
-          </div>
+        <article class="category-card">
+          <div class="placeholder-block"></div>
+          <h3>3D / Motion / Unreal Engine</h3>
+          <p>Ongoing experiments in real-time visuals, cinematic composition, motion and screen-based workflows.</p>
+        </article>
+      </div>
+    </section>
 
-          <div class="project-card">
-            <div class="project-media">
-              <img src="assets/images/poster-cover.jpg" alt="Poster and layout design cover" />
-            </div>
-            <div class="project-content">
-              <h3>Poster &amp; Layout Design</h3>
-              <p class="meta">Graphic Design / Layout / Visual Communication</p>
-              <p>
-                A selection of poster, print and layout studies focused on hierarchy,
-                visual rhythm and communication across different design contexts.
-              </p>
-            </div>
-          </div>
+    <section class="section-shell featured-project">
+      <div class="project-media">
+        <div class="project-placeholder">
+          <span>Nanchang City Symbols</span>
         </div>
-      </section>
+      </div>
 
-      <section class="about" id="about">
-        <h2 class="about-title">About</h2>
-        <div class="about-copy">
-          <p>
-            I am a Visual Communication student at the University for the Creative Arts.
-            My work focuses on brand identity, cultural communication, organised design processes
-            and creative production workflows.
-          </p>
-          <p>
-            Contact: <a href="mailto:junchaozhu2003@outlook.com">junchaozhu2003@outlook.com</a>
-          </p>
+      <div class="project-copy">
+        <p class="eyebrow">Featured Project</p>
+        <h2>Nanchang City Symbols</h2>
+        <p class="project-subtitle">Visual Communication Graduation Project</p>
+        <p>
+          A visual communication project exploring how simplified city symbols can introduce Nanchang to
+          international audiences through postcards, stamps, posters, stickers, calendars and print-based
+          visual storytelling.
+        </p>
+        <div class="tag-list">
+          <span>Visual Identity</span>
+          <span>City Symbols</span>
+          <span>Tourism Communication</span>
+          <span>Print Design</span>
+          <span>Photoshop</span>
+          <span>InDesign</span>
+          <span>Creative Production</span>
         </div>
-      </section>
-    </main>
+        <a class="text-link" href="nanchang.html">View Case Study</a>
+      </div>
+    </section>
 
-    <footer>
-      © 2026 Junchao Zhu
-    </footer>
-  </div>
+    <section class="section-shell about-preview" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">About</p>
+        <h2>Visual Design With Production Thinking</h2>
+      </div>
+      <div class="about-text">
+        <p>
+          I am a Visual Communication graduate developing my practice across visual design, creative production,
+          3D, motion and Unreal Engine-related workflows. My work combines visual storytelling, research, layout
+          systems and production process documentation.
+        </p>
+        <a class="button button-outline" href="#contact">More About Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <a href="mailto:junchaozhu2003@outlook.com">junchaozhu2003@outlook.com</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="JUNCHAO_ZHU_CV.pdf">CV</a>
+      <a href="https://github.com/junchaozhu2003" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+    <p class="copyright">&copy; 2026 Junchao Zhu</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
