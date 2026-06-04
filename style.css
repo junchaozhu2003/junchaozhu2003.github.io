@@ -242,40 +242,6 @@ a {
   margin-top: 34px;
 }
 
-.hero-micro-label {
-  position: absolute;
-  z-index: 1;
-  padding: 8px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.095);
-  background: rgba(11, 13, 16, 0.38);
-  color: rgba(245, 245, 245, 0.58);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
-
-.label-brand {
-  top: 21%;
-  right: 42%;
-}
-
-.label-production {
-  top: 34%;
-  right: -1%;
-}
-
-.label-motion {
-  right: 38%;
-  bottom: 20%;
-}
-
-.label-vfx {
-  right: 3%;
-  bottom: 12%;
-}
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -424,23 +390,16 @@ a {
   background: linear-gradient(180deg, transparent, rgba(103, 199, 255, 0.18), transparent);
 }
 
-.visual-panel {
+.visual-shape {
   position: absolute;
-  display: grid;
-  place-items: center;
-  min-width: 150px;
-  min-height: 86px;
   border: 1px solid rgba(255, 255, 255, 0.13);
-  background: rgba(11, 13, 16, 0.72);
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.015)),
+    rgba(11, 13, 16, 0.6);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
 }
 
-.visual-panel::before {
+.visual-shape::before {
   content: "";
   position: absolute;
   inset: 7px;
@@ -448,27 +407,38 @@ a {
   pointer-events: none;
 }
 
-.panel-one {
+.shape-one {
   top: 86px;
   left: 12%;
+  width: 150px;
+  height: 86px;
 }
 
-.panel-two {
+.shape-two {
   right: 9%;
   bottom: 106px;
+  width: 170px;
+  height: 92px;
 }
 
-.panel-three {
+.shape-three {
   left: 26%;
   bottom: 52px;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 30%, rgba(103, 199, 255, 0.18), transparent 54%),
+    rgba(11, 13, 16, 0.5);
 }
 
-.panel-four {
+.shape-four {
   top: 178px;
   right: 18%;
-  min-width: 118px;
-  min-height: 68px;
-  color: var(--accent);
+  width: 118px;
+  height: 68px;
+  transform: rotate(-12deg);
+  border-color: rgba(103, 199, 255, 0.18);
 }
 
 .selected-work,
@@ -499,8 +469,9 @@ a {
 }
 
 .category-card {
+  position: relative;
   display: block;
-  min-height: 390px;
+  min-height: 470px;
   padding: 16px;
   border: 1px solid var(--line);
   background: var(--card);
@@ -508,6 +479,33 @@ a {
   text-decoration: none;
   overflow: hidden;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-top: 1px solid rgba(103, 199, 255, 0.28);
+  border-right: 1px solid rgba(103, 199, 255, 0.28);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 16px 16px auto;
+  width: 42px;
+  height: 42px;
+  opacity: 0.24;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(103, 199, 255, 0.34) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 199, 255, 0.28) 1px, transparent 1px);
+  background-size: 8px 8px;
 }
 
 .category-card:hover {
@@ -518,6 +516,7 @@ a {
 }
 
 .placeholder-block {
+  position: relative;
   height: 190px;
   margin-bottom: 22px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -528,6 +527,29 @@ a {
     rgba(255, 255, 255, 0.035);
   background-size: auto, 28px 28px, 28px 28px, auto;
   transition: transform 260ms ease;
+  overflow: hidden;
+}
+
+.placeholder-block::after {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.category-card-brand .placeholder-block::after {
+  content: "IDENTITY";
+}
+
+.category-card-graphic .placeholder-block::after {
+  content: "GRAPHIC";
+}
+
+.category-card-production .placeholder-block::after {
+  content: "PROCESS";
 }
 
 .category-card:hover .placeholder-block {
@@ -576,7 +598,17 @@ a {
   text-transform: uppercase;
 }
 
+.card-number {
+  display: inline-block;
+  margin: 0 0 10px;
+  color: rgba(245, 245, 245, 0.54);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
 .card-kicker {
+  display: block;
   margin-bottom: 10px;
 }
 
@@ -596,6 +628,47 @@ a {
 .practice-item p {
   color: var(--muted);
   font-size: 16px;
+}
+
+.focus-list {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.focus-list strong {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(245, 245, 245, 0.78);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.focus-list ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.focus-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.focus-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
 }
 
 .featured-project {
@@ -1018,10 +1091,6 @@ a {
     min-height: 420px;
   }
 
-  .hero-micro-label {
-    display: none;
-  }
-
   .visual-frame {
     height: 360px;
   }
@@ -1093,28 +1162,29 @@ a {
     min-height: 360px;
   }
 
-  .panel-one,
-  .panel-two,
-  .panel-three,
-  .panel-four {
+  .shape-one,
+  .shape-two,
+  .shape-three,
+  .shape-four {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
   }
 
-  .panel-one {
+  .shape-one {
     top: 70px;
   }
 
-  .panel-two {
+  .shape-two {
     bottom: 112px;
   }
 
-  .panel-three {
+  .shape-three {
     bottom: 42px;
   }
 
-  .panel-four {
+  .shape-four {
     top: 168px;
+    transform: translateX(-50%) rotate(-12deg);
   }
 }
