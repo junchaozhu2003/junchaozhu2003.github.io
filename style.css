@@ -71,6 +71,8 @@ a {
   filter: blur(70px);
   pointer-events: none;
   opacity: 0.32;
+  animation: driftGlow 22s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .glow-a {
@@ -83,6 +85,18 @@ a {
   bottom: 8vh;
   left: -12vw;
   background: rgba(201, 107, 60, 0.14);
+  animation-duration: 28s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes driftGlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(18px, -24px, 0) scale(1.04);
+  }
 }
 
 .site-header {
@@ -129,7 +143,7 @@ a {
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 180ms ease;
+  transition: color 260ms ease, transform 260ms ease;
 }
 
 .site-nav a::after,
@@ -149,6 +163,7 @@ a {
 .site-nav a:hover,
 .footer-links a:hover {
   color: var(--text);
+  transform: translateY(-2px);
 }
 
 .site-nav a:hover::after,
@@ -256,11 +271,11 @@ a {
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  transition: transform 320ms ease, border-color 320ms ease, background 320ms ease, box-shadow 320ms ease;
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 .button-primary {
@@ -278,6 +293,7 @@ a {
 .button-ghost:hover {
   border-color: var(--line-bright);
   background: rgba(103, 199, 255, 0.08);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
 }
 
 .button-ghost {
@@ -478,7 +494,7 @@ a {
   color: inherit;
   text-decoration: none;
   overflow: hidden;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  transition: transform 340ms ease, border-color 340ms ease, background 340ms ease, box-shadow 340ms ease;
 }
 
 .category-card::before {
@@ -509,10 +525,10 @@ a {
 }
 
 .category-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px) scale(1.01);
   border-color: var(--line-bright);
   background: var(--card-strong);
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 26px 62px rgba(0, 0, 0, 0.28);
 }
 
 .placeholder-block {
@@ -526,7 +542,7 @@ a {
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     rgba(255, 255, 255, 0.035);
   background-size: auto, 28px 28px, 28px 28px, auto;
-  transition: transform 260ms ease;
+  transition: transform 340ms ease;
   overflow: hidden;
 }
 
@@ -572,7 +588,7 @@ a {
 
 .category-card-vfx:hover {
   border-color: rgba(103, 199, 255, 0.72);
-  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.26), 0 0 34px rgba(103, 199, 255, 0.08);
+  box-shadow: 0 28px 66px rgba(0, 0, 0, 0.3), 0 0 36px rgba(103, 199, 255, 0.1);
 }
 
 .category-card-vfx:hover::after {
@@ -1036,10 +1052,46 @@ a {
 }
 
 .page-project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px) scale(1.01);
   border-color: var(--line-bright);
   background: var(--card-strong);
   box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 760ms ease, transform 760ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 80ms;
+}
+
+.reveal-delay-2 {
+  transition-delay: 160ms;
+}
+
+.reveal-delay-3 {
+  transition-delay: 240ms;
+}
+
+.reveal-delay-4 {
+  transition-delay: 320ms;
+}
+
+.reveal-delay-5 {
+  transition-delay: 400ms;
+}
+
+.reveal-delay-6 {
+  transition-delay: 480ms;
 }
 
 .page-project-card > span {
@@ -1186,5 +1238,29 @@ a {
   .shape-four {
     top: 168px;
     transform: translateX(-50%) rotate(-12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .background-glow {
+    animation: none;
   }
 }
