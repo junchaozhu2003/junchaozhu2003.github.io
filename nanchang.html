@@ -52,6 +52,7 @@
       border: 1px solid #ddd;
       background: #ddd;
       margin-bottom: 48px;
+      border-radius: 8px;
     }
 
     .section {
@@ -110,6 +111,48 @@
       font-size: 15px;
     }
 
+    .image-card {
+      margin: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .image-card:hover {
+      transform: translateY(-4px);
+      border-color: #1d4f75;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+    }
+
+    .image-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #eee;
+    }
+
+    .image-card figcaption {
+      padding: 12px 14px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .gallery.wide {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 36px 5vw;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
+
     footer {
       padding: 32px 8vw;
       border-top: 1px solid #ccc;
@@ -131,7 +174,7 @@
     </div>
 
     <div class="hero">
-      <img src="assets/images/nanchang-cover.jpg" alt="Nanchang City Symbols project cover">
+      <img src="assets/images/nanchang/nanchang-final-applications.png" alt="Nanchang City Symbols final applications">
     </div>
 
     <section class="section">
@@ -177,6 +220,17 @@
         simplifying them into clear graphic forms that could be understood by audiences
         without relying heavily on language.
       </p>
+
+      <div class="gallery">
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-concept-proposal.png" alt="Nanchang concept proposal and poster direction">
+          <figcaption>Concept proposal and tourism communication direction.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-product-reasoning.png" alt="Nanchang product reasoning and layout system">
+          <figcaption>Product reasoning, ranking system and layout logic.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section">
@@ -188,8 +242,45 @@
       </p>
 
       <div class="gallery">
-        <div class="placeholder">Add icon sketches / simplification process here.</div>
-        <div class="placeholder">Add colour tests / layout experiments here.</div>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-icon-development-01.png" alt="Tengwang Pavilion icon development process">
+          <figcaption>Landmark icon simplification and development.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-type-symbol-combination.png" alt="Nanchang type and symbol combination tests">
+          <figcaption>Type and symbol combination tests.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-logo-refinement-01.png" alt="Nanchang logo refinement process one">
+          <figcaption>Logo refinement and Chinese type positioning.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-logo-refinement-02.png" alt="Nanchang logo refinement process two">
+          <figcaption>Alternative lockups and final selection notes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Colour System</h2>
+      <p>
+        I tested light and dark colour approaches to check how the identity could work
+        across different backgrounds while keeping the landmark symbol recognisable.
+      </p>
+
+      <div class="gallery">
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-colour-test-light.png" alt="Nanchang light colour test">
+          <figcaption>Light background colour test.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-colour-test-dark.png" alt="Nanchang dark colour test">
+          <figcaption>Dark background colour test.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-final-direction.png" alt="Nanchang final visual identity direction">
+          <figcaption>Final visual direction and selected lockup.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -202,9 +293,33 @@
       </p>
 
       <div class="gallery">
-        <div class="placeholder">Add postcard mock-ups here.</div>
-        <div class="placeholder">Add stamp designs here.</div>
-        <div class="placeholder">Add calendar design here.</div>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-application-clothing-01.png" alt="Nanchang clothing mockup experiment">
+          <figcaption>Clothing mockup experiment.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-application-clothing-02.png" alt="Nanchang apron application mockup">
+          <figcaption>Application mockup and production notes.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-calendar-typography.png" alt="Nanchang typography trial">
+          <figcaption>Typography trial for calendar and print applications.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-poster-final-01.png" alt="Nanchang final poster design one">
+          <figcaption>Final poster direction, light version.</figcaption>
+        </figure>
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-poster-final-02.png" alt="Nanchang final poster design two">
+          <figcaption>Final poster direction, dark version.</figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery wide">
+        <figure class="image-card">
+          <img src="assets/images/nanchang/nanchang-final-applications.png" alt="Nanchang final applications across multiple formats">
+          <figcaption>Final applications across posters, printed materials and wearable outcomes.</figcaption>
+        </figure>
       </div>
     </section>
 
