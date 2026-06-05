@@ -702,6 +702,7 @@ a {
 }
 
 .project-placeholder {
+  position: relative;
   display: grid;
   place-items: end start;
   width: 100%;
@@ -714,13 +715,29 @@ a {
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: auto, auto, 50px 50px, 50px 50px;
+  overflow: hidden;
 }
 
 .project-placeholder span {
+  position: relative;
+  z-index: 1;
   max-width: 420px;
   font-size: clamp(38px, 6vw, 82px);
   font-weight: 800;
   line-height: 0.95;
+}
+
+.featured-project-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(18px, 3vw, 34px);
+  background:
+    radial-gradient(circle at 70% 22%, rgba(103, 199, 255, 0.08), transparent 18rem),
+    rgba(255, 255, 255, 0.03);
 }
 
 .project-copy {
@@ -1247,6 +1264,18 @@ a {
   transform: translateY(-4px) scale(1.01);
   border-color: var(--line-bright);
   box-shadow: 0 24px 58px rgba(0, 0, 0, 0.28);
+}
+
+.case-study-gallery img.final-applications-image {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 860px);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 980px) {
