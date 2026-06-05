@@ -1195,16 +1195,39 @@ a {
   margin-top: 28px;
 }
 
+.case-study-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(320px, 0.78fr);
+  gap: clamp(30px, 5vw, 72px);
+  align-items: center;
+}
+
+.case-study-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-study-hero-copy h1 {
+  margin: 0;
+}
+
+.case-study-hero-copy > p:not(.eyebrow):not(.project-subtitle) {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
 .case-study-hero-poster {
   display: grid;
   place-items: center;
   width: 100%;
-  margin: clamp(34px, 5vw, 64px) auto 0;
+  margin: 0 auto;
 }
 
 .case-study-hero-poster img {
   display: block;
-  width: min(100%, 980px);
+  width: min(100%, 760px);
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -1306,6 +1329,58 @@ a {
   margin-right: auto;
 }
 
+.final-outcome-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(54px, 8vw, 100px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.final-outcome-showcase .case-study-copy {
+  position: static;
+  order: 2;
+}
+
+.large-showcase-image {
+  display: grid;
+  place-items: center;
+  order: 1;
+}
+
+.large-showcase-image img {
+  display: block;
+  width: min(100%, 900px);
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.28);
+  transition: transform 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.large-showcase-image img:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: var(--line-bright);
+  box-shadow: 0 34px 84px rgba(0, 0, 0, 0.34);
+}
+
+.case-study-reflection-section {
+  max-width: 920px;
+  padding: clamp(48px, 7vw, 86px) 0 clamp(72px, 9vw, 120px);
+  border-top: 1px solid var(--line);
+}
+
+.case-study-reflection-section p:last-child {
+  margin: 0;
+  color: rgba(245, 245, 245, 0.86);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.55;
+}
+
 @media (max-width: 980px) {
   .hero,
   .featured-project,
@@ -1336,12 +1411,19 @@ a {
 
   .nanchang-project-grid,
   .nanchang-image-stack,
+  .case-study-hero-grid,
   .case-study-section,
   .case-study-section-wide,
+  .final-outcome-showcase,
   .case-study-gallery,
   .case-study-gallery.two-up,
   .case-study-gallery.applications-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .final-outcome-showcase .case-study-copy,
+  .large-showcase-image {
+    order: initial;
   }
 
   .case-study-copy {
