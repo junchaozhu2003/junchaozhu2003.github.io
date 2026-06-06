@@ -1356,7 +1356,7 @@ a {
 .case-study-section {
   display: grid;
   grid-template-columns: minmax(260px, 0.45fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 62px);
+  gap: clamp(36px, 5.6vw, 76px);
   align-items: start;
   padding: clamp(54px, 8vw, 96px) 0;
   border-top: 1px solid var(--line);
@@ -1393,7 +1393,9 @@ a {
 .case-study-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: clamp(22px, 2.5vw, 30px);
+  align-content: start;
+  align-items: start;
 }
 
 .case-study-gallery.two-up {
@@ -1404,12 +1406,18 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.case-study-gallery.single-feature {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+}
+
 .case-study-gallery figure {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   margin: 0;
   min-width: 0;
+  overflow: hidden;
 }
 
 .case-study-gallery img {
@@ -1428,7 +1436,8 @@ a {
 .case-study-gallery figcaption {
   color: rgba(168, 173, 183, 0.92);
   font-size: 12px;
-  line-height: 1.45;
+  line-height: 1.5;
+  padding: 0 2px;
 }
 
 .case-study-gallery img:hover {
@@ -1472,6 +1481,7 @@ a {
   display: grid;
   place-items: center;
   order: 1;
+  overflow: hidden;
 }
 
 .large-showcase-image img {
