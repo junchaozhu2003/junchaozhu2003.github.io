@@ -533,7 +533,8 @@ a {
 
 .placeholder-block {
   position: relative;
-  height: clamp(220px, 19vw, 280px);
+  aspect-ratio: 16 / 9;
+  height: auto;
   margin-bottom: 22px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
@@ -744,20 +745,22 @@ a {
 }
 
 .project-media {
-  min-height: 520px;
+  min-height: 500px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.035);
+  background:
+    radial-gradient(circle at 74% 22%, rgba(103, 199, 255, 0.08), transparent 18rem),
+    rgba(255, 255, 255, 0.035);
   overflow: hidden;
 }
 
 .project-placeholder {
   position: relative;
   display: grid;
-  place-items: end start;
+  place-items: center;
   width: 100%;
   height: 100%;
   min-height: 520px;
-  padding: 28px;
+  padding: clamp(18px, 3vw, 34px);
   background:
     linear-gradient(135deg, rgba(103, 199, 255, 0.2), transparent 44%),
     radial-gradient(circle at 72% 22%, rgba(201, 107, 60, 0.14), transparent 18rem),
@@ -767,18 +770,21 @@ a {
   overflow: hidden;
 }
 
-.project-placeholder span {
-  position: relative;
+.project-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  max-width: 420px;
-  font-size: clamp(38px, 6vw, 82px);
-  font-weight: 800;
-  line-height: 0.95;
+  background:
+    linear-gradient(180deg, rgba(11, 13, 16, 0.06), rgba(11, 13, 16, 0.14)),
+    radial-gradient(circle at 12% 88%, rgba(11, 13, 16, 0.2), transparent 18rem);
+  pointer-events: none;
 }
 
 .featured-project-preview {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1610,7 +1616,8 @@ a {
   }
 
   .placeholder-block {
-    height: clamp(180px, 48vw, 220px);
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 
   .category-feature-visual {
